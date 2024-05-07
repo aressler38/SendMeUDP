@@ -1,0 +1,63 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sendmeudp"
+dynamic = ["version"]
+description = ''
+readme = "README.md"
+requires-python = ">=3.8"
+license = { text = "MIT" }
+keywords = []
+authors = [
+  { name = "alexander", email = "alexander.ressler@gmail.com" },
+]
+classifiers = [ ]
+dependencies = [
+]
+
+
+[project.optional-dependencies]
+dev = [
+  "coverage[toml]>=6.5",
+  "pytest",
+]
+
+#[project.urls]
+#Documentation = ""
+#Issues = ""
+#Source = ""
+
+
+
+#[project.scripts]
+#test = "pytest"
+#test-cov = "coverage run -m pytest"
+#cov-report = [
+#  "- coverage combine",
+#  "coverage report",
+#]
+#cov = [
+#  "test-cov",
+#  "cov-report",
+#]
+
+[tool.coverage.run]
+source_pkgs = ["sendmeudp", "tests"]
+branch = true
+parallel = true
+omit = [
+  "src/sendmeudp/__about__.py",
+]
+
+[tool.coverage.paths]
+sendmeudp = ["src/sendmeudp", "*/sendmeudp/src/sendmeudp"]
+tests = ["tests", "*/sendmeudp/tests"]
+
+[tool.coverage.report]
+exclude_lines = [
+  "no cov",
+  "if __name__ == .__main__.:",
+  "if TYPE_CHECKING:",
+]
